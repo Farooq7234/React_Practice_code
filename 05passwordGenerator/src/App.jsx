@@ -12,7 +12,7 @@ function App() {
   // 'useRef' hook to create a reference to the password input field
   const passwordRef = useRef(null);
 
-  // Callback function for generating a password based on current state values
+  // Callback function for generating a password based on"current state values"
   const passwordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
