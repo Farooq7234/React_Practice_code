@@ -5,7 +5,7 @@ function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const { setUser } = useContext(UserContext)
+  const {setUser} = useContext(UserContext) // At the end the data is now in setUser both username and password look handlesubmit function 
 
   const handleSubmit = (e) => {
     e.preventDefault()
