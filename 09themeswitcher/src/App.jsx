@@ -1,29 +1,34 @@
-
-import { useEffect, useState } from 'react'
-import './App.css'
-import { ThemeProvider } from './contexts/theme'
-import ThemeBtn from './components/ThemeBtn'
-import Card from './components/Card'
+import { useEffect, useState } from 'react';
+import './App.css';
+import { ThemeProvider } from './contexts/theme';
+import ThemeBtn from './components/ThemeBtn';
+import Card from './components/Card';
 
 function App() {
-  const [themeMode, setThemeMode] = useState("light")
+  // Step 1: Set initial theme mode state to "light"
+  const [themeMode, setThemeMode] = useState("light");
 
+  // Step 2: Define functions to update theme mode
   const lightTheme = () => {
-    setThemeMode("light")
+    setThemeMode("light"); // Switch to light theme
   }
 
   const darkTheme = () => {
-    setThemeMode("dark")
+    setThemeMode("dark"); // Switch to dark theme
   }
 
-  // actual change in theme
+  // Actual change in theme
 
+  // Step 3: Use useEffect to update HTML class based on themeMode changes
   useEffect(() => {
-    document.querySelector('html').classList.remove("light", "dark")
-    document.querySelector('html').classList.add(themeMode)
-  }, [themeMode])
-  
+    // Remove existing "light" and "dark" classes from the HTML element
+    document.querySelector('html').classList.remove("light", "dark");
 
+    // Add the current themeMode as a class to the HTML element
+    document.querySelector('html').classList.add(themeMode);
+  }, [themeMode]);
+
+  
   return (
     <ThemeProvider value={{themeMode, lightTheme, darkTheme}}>
       <div className="flex flex-wrap min-h-screen items-center">
